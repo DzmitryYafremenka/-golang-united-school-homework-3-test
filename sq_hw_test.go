@@ -24,7 +24,3 @@ func TestCalcSquare(t *testing.T) {
 	}
 
 }
-
-func CalcSquare(a float64, b int) float64 {
-	return 0
-}
