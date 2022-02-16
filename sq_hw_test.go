@@ -14,7 +14,7 @@ func TestCalcSquare(t *testing.T) {
 	for _, n := range sidesNums {
 		for _, l := range sideLens {
 			want := w[i]
-			got := CalcSquares(l, n)
+			got := CalcSquare(l, n)
 			assert.Equal(t, want, got)
 			i++
 		}
