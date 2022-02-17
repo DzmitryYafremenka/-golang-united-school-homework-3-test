@@ -1,26 +1,69 @@
 package square
 
 import (
-	"reflect"
+	"math"
 	"testing"
-
-	"github.com/stretchr/testify/assert"
 )
 
-func TestCalcSquare(t *testing.T) {
-	sidesNums := []int{0, 3, 4, 5}
-	sideLens := []float64{1, 2, 3, 4, 5, 6.0, 7.1, 5.99}
-	w := []float64{1.5707963267948966, 6.283185307179586, 14.137166941154069, 25.132741228718345, 39.269908169872416, 56.548667764616276, 79.18384283373074, 56.36032928503358, 0.4330127018922193, 0.8660254037844386, 1.299038105676658, 1.7320508075688772, 2.1650635094610964, 2.598076211353316, 3.074390183434757, 2.5937460843343936, 2, 4, 6, 8, 10, 12, 14.2, 11.98, 0, 0, 0, 0, 0, 0, 0, 0}
-	i := 0
-	var myFync func(float64, int) float64
-	assert.NotEqual(t, reflect.TypeOf(myFync), reflect.TypeOf(CalcSquare))
-	for _, n := range sidesNums {
-		for _, l := range sideLens {
-			want := w[i]
-			got := CalcSquare(l, n)
-			assert.Equal(t, want, got)
-			i++
+const deltaTesting = 0.001
+
+func equalDeltaFloat64(a, b, delta float64) bool {
+	return math.Abs(b-a) < delta
+}
+
+func Test_solutionSquare(t *testing.T) {
+	data := []struct {
+		In       float64
+		Expected float64
+	}{
+		{In: 0, Expected: 0},
+		{In: 1, Expected: 1},
+		{In: 4.4, Expected: 19.36},
+		{In: 15.67, Expected: 245.5489},
+	}
+	for _, q := range data {
+		got := CalcSquare(q.In, SidesSquare)
+		if !equalDeltaFloat64(got, q.Expected, deltaTesting) {
+			t.Logf("Square4 expected: %f, got: %f", q.Expected, got)
+			t.Fail()
 		}
 	}
+}
 
+func Test_solutionTriangle(t *testing.T) {
+	data := []struct {
+		In       float64
+		Expected float64
+	}{
+		{In: 0, Expected: 0},
+		{In: 1, Expected: 0.433013},
+		{In: 4.4, Expected: 1.905256},
+		{In: 15.67, Expected: 6.785309},
+	}
+	for _, q := range data {
+		got := CalcSquare(q.In, SidesTriangle)
+		if !equalDeltaFloat64(got, q.Expected, deltaTesting) {
+			t.Logf("Square4 expected: %f, got: %f", q.Expected, got)
+			t.Fail()
+		}
+	}
+}
+
+func Test_solutionCircle(t *testing.T) {
+	data := []struct {
+		In       float64
+		Expected float64
+	}{
+		{In: 0, Expected: 0},
+		{In: 1, Expected: 1.570796},
+		{In: 4.4, Expected: 30.410617},
+		{In: 15.67, Expected: 385.707310},
+	}
+	for _, q := range data {
+		got := CalcSquare(q.In, SidesCircle)
+		if !equalDeltaFloat64(got, q.Expected, deltaTesting) {
+			t.Logf("Square0 expected: %f, got: %f", q.Expected, got)
+			t.Fail()
+		}
+	}
 }
