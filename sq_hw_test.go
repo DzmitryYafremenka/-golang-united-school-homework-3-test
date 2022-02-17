@@ -37,8 +37,8 @@ func Test_solutionTriangle(t *testing.T) {
 	}{
 		{In: 0, Expected: 0},
 		{In: 1, Expected: 0.433013},
-		{In: 4.4, Expected: 1.905256},
-		{In: 15.67, Expected: 6.785309},
+		{In: 4.4, Expected: 8.383126},
+		{In: 15.67, Expected: 106.325793},
 	}
 	for _, q := range data {
 		got := CalcSquare(q.In, SidesTriangle)
