@@ -11,43 +11,43 @@ func equalDeltaFloat64(a, b, delta float64) bool {
 	return math.Abs(b-a) < delta
 }
 
-// func Test_solutionSquare(t *testing.T) {
-// 	data := []struct {
-// 		In       float64
-// 		Expected float64
-// 	}{
-// 		{In: 0, Expected: 0},
-// 		{In: 1, Expected: 1},
-// 		{In: 4.4, Expected: 19.36},
-// 		{In: 15.67, Expected: 245.5489},
-// 	}
-// 	for _, q := range data {
-// 		got := CalcSquare(q.In, SidesSquare)
-// 		if !equalDeltaFloat64(got, q.Expected, deltaTesting) {
-// 			t.Logf("Square4 expected: %f, got: %f", q.Expected, got)
-// 			t.Fail()
-// 		}
-// 	}
-// }
+func Test_solutionSquare(t *testing.T) {
+	data := []struct {
+		In       float64
+		Expected float64
+	}{
+		{In: 0, Expected: 0},
+		{In: 1, Expected: 1},
+		{In: 4.4, Expected: 19.36},
+		{In: 15.67, Expected: 245.5489},
+	}
+	for _, q := range data {
+		got := CalcSquare(q.In, SidesSquare)
+		if !equalDeltaFloat64(got, q.Expected, deltaTesting) {
+			t.Logf("Square4 expected: %f, got: %f", q.Expected, got)
+			t.Fail()
+		}
+	}
+}
 
-// func Test_solutionTriangle(t *testing.T) {
-// 	data := []struct {
-// 		In       float64
-// 		Expected float64
-// 	}{
-// 		{In: 0, Expected: 0},
-// 		{In: 1, Expected: 0.433013},
-// 		{In: 4.4, Expected: 1.905256},
-// 		{In: 15.67, Expected: 6.785309},
-// 	}
-// 	for _, q := range data {
-// 		got := CalcSquare(q.In, SidesTriangle)
-// 		if !equalDeltaFloat64(got, q.Expected, deltaTesting) {
-// 			t.Logf("Square4 expected: %f, got: %f", q.Expected, got)
-// 			t.Fail()
-// 		}
-// 	}
-// }
+func Test_solutionTriangle(t *testing.T) {
+	data := []struct {
+		In       float64
+		Expected float64
+	}{
+		{In: 0, Expected: 0},
+		{In: 1, Expected: 0.433013},
+		{In: 4.4, Expected: 1.905256},
+		{In: 15.67, Expected: 6.785309},
+	}
+	for _, q := range data {
+		got := CalcSquare(q.In, SidesTriangle)
+		if !equalDeltaFloat64(got, q.Expected, deltaTesting) {
+			t.Logf("Square4 expected: %f, got: %f", q.Expected, got)
+			t.Fail()
+		}
+	}
+}
 
 func Test_solutionCircle(t *testing.T) {
 	data := []struct {
