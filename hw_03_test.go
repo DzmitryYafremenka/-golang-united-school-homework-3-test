@@ -95,7 +95,7 @@ func Test_sortMapValues(t *testing.T) {
 					8:  "F",
 					9:  "O",
 					10: "R",
-					11: "S",
+					11: "C",
 					12: "E",
 					13: " ",
 					14: "B",
@@ -111,7 +111,7 @@ func Test_sortMapValues(t *testing.T) {
 					24: "U",
 				},
 			},
-			wantResult: []string{"M", "A", "Y", " ", "T", "H", "E", " ", "F", "O", "R", "S", "E", " ", "B", "E", " ", "W", "I", "T", "H", " ", "Y", "O", "U"},
+			wantResult: []string{"M", "A", "Y", " ", "T", "H", "E", " ", "F", "O", "R", "C", "E", " ", "B", "E", " ", "W", "I", "T", "H", " ", "Y", "O", "U"},
 		},
 	}
 	for _, tt := range tests {
